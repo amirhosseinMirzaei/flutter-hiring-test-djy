@@ -54,8 +54,8 @@
 
 <h2>ساختار پوشه‌ها</h2>
 <pre><code>lib/
- ├── features/           # ماژول‌های ویژگی‌محور
- │    ├── countries/     # ماژول کشورها
+ ├── features/         
+ │    ├── countries/    
  │    │     ├── data/    # Repository و Data Source, model
  │    │     ├── domain/  #  UseCase 
  │    │     └── presentation/ # ویجت‌ها و BLoC
