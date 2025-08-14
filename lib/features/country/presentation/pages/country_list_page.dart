@@ -2,10 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '../bloc/country_bloc.dart';
 import '../bloc/country_event.dart';
 import '../bloc/country_state.dart';
+import '../widgets/country_shimmer_item.dart';
 
 class CountryListPage extends StatelessWidget {
   final CountryBloc countryBloc;
@@ -22,7 +24,7 @@ class CountryListPage extends StatelessWidget {
           builder: (context, state) {
             return state.when(
               initial: () => const Center(child: Text('Press button to load')),
-              loading: () => const Center(child: CircularProgressIndicator()),
+              loading: () => ListView.builder(itemCount: 20, itemBuilder: (_, __) => const CountryShimmerItem()),
               loaded:
                   (countries) => ListView.builder(
                     itemCount: countries.length,
