@@ -30,17 +30,19 @@ class CountryListPage extends StatelessWidget {
                     itemCount: countries.length,
                     itemBuilder: (context, index) {
                       final country = countries[index];
-                      return ListTile(
-                        leading: CachedNetworkImage(
-                          imageUrl: country.flag,
-                          width: 50,
-                          height: 30,
-                          fit: BoxFit.cover,
-                          placeholder: (context, url) => const SizedBox(width: 10, height: 10, child: CircularProgressIndicator(strokeWidth: 1)),
-                          errorWidget: (context, url, error) => const Icon(Icons.error),
+                      return RepaintBoundary(
+                        child: ListTile(
+                          leading: CachedNetworkImage(
+                            imageUrl: country.flag,
+                            width: 50,
+                            height: 30,
+                            fit: BoxFit.cover,
+                            placeholder: (context, url) => const SizedBox(width: 10, height: 10, child: CircularProgressIndicator(strokeWidth: 1)),
+                            errorWidget: (context, url, error) => const Icon(Icons.error),
+                          ),
+                          title: Text(country.name),
+                          subtitle: Text(country.capital),
                         ),
-                        title: Text(country.name),
-                        subtitle: Text(country.capital),
                       );
                     },
                   ),
