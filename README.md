@@ -62,12 +62,15 @@
 
 <h2>ساختار پوشه‌ها</h2>
 <pre><code>lib/
+ ├── core/
+ │    └── error/           # کلاس‌های Failure و مدیریت خطا
  ├── features/         
- │    ├── countries/    
- │    │     ├── data/    # Repository و Data Source, model
- │    │     ├── domain/  #  UseCase 
+ │    ├── country/    
+ │    │     ├── data/      
+ │    │     ├── domain/    
  │    │     └── presentation/ # ویجت‌ها و BLoC
  └── main.dart          
 </code></pre>
+
 
 </div>
