@@ -12,5 +12,5 @@ void main() {
   final getCountries = GetCountries(countryRepository);
   final countryBloc = CountryBloc(getCountries);
 
-  runApp(MaterialApp(home: CountryListPage(countryBloc: countryBloc)));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: CountryListPage(countryBloc: countryBloc)));
 }
