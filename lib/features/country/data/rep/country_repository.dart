@@ -28,4 +28,14 @@ class CountryRepository implements ICountryRepository {
   }
 }
 
+class GetCountries {
+  final ICountryRepository repository;
+
+  GetCountries(this.repository);
+
+  Future<List<Country>> call() async {
+    return await repository.getCountries();
+  }
+}
+
 
