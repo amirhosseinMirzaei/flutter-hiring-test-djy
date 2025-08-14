@@ -38,6 +38,7 @@ dependencies:
   json_annotation: ^4.8.1
   flutter_bloc: any
   bloc: any
+  cached_network_image: ^3.2.3
 
 dev_dependencies:
   build_runner: ^2.4.8
