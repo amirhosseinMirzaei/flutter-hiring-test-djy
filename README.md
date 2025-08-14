@@ -14,12 +14,20 @@
     <li><strong>Immutable Models با Freezed</strong>: ایجاد مدل‌های داده‌ای ایمن، Immutable و قابل Serialize با پشتیبانی از JSON.</li>
     <li><strong>Clean Architecture</strong>: لایه‌بندی پروژه به صورت <code>presentation</code>، <code>features</code> و <code>data</code> برای جداسازی منطق و سهولت توسعه.</li>
     <li><strong>Dependency Injection</strong>: تزریق <code>Repository</code> و <code>Data Source</code> به BLoC برای انعطاف‌پذیری و قابلیت تست بهتر.</li>
-    <li><strong>State Management با BLoC</strong>: مدیریت حالات <em>لودینگ</em>، <em>خطا</em> و <em>نمایش داده‌ها</em>.</li>
+  <li><strong>State Management با BLoC</strong>: مدیریت حالات <em>لودینگ</em>، <em>خطا</em> و <em>نمایش داده‌ها</em>. در این پروژه خطاها با کلاس‌های <code>Failure</code> مدیریت می‌شوند و شامل انواع زیر هستند:
+    <ul>
+      <li><code>NetworkFailure</code>: خطاهای مربوط به اینترنت و اتصال شبکه</li>
+      <li><code>ServerFailure</code>: خطاهای سمت سرور</li>
+      <li><code>CacheFailure</code>: خطاهای مربوط به ذخیره‌سازی یا پردازش داده‌ها</li>
+    </ul>
+    کلاس <code>Failure</code> با Freezed تعریف شده تا بتوان به سادگی از <code>when</code> و <code>map</code> برای مدیریت انواع مختلف خطاها استفاده کرد و تجربه کاربری بهتری با نمایش Toastها فراهم کرد.
+  </li>
     <li><strong>بهینه‌سازی رندر با RepaintBoundary</strong>: استفاده از ویجت برای جلوگیری از رندر مجدد کل صفحه و کاهش فشار روی GPU/CPU، مخصوصاً در بخش‌هایی که شامل تصاویر کش‌شده یا لیست‌های طولانی هستند.</li>
     <li><strong>دریافت داده‌ها با Dio</strong>: ارتباط با API یا فایل JSON آنلاین با استفاده از کتابخانه‌ی <code>dio</code>.</li>
     <li><strong>کش کردن تصاویر</strong>: استفاده از <code>cached_network_image</code> برای ذخیره و نمایش بهینه تصاویر.</li>
     <li><strong>Shimmer Effect</strong>: ایجاد افکت Skeleton Loading قبل از لود شدن محتوای اصلی.</li>
     <li><strong>Unit Test و Mocking</strong>: تست لایه‌ی داده‌ها با <code>mockito</code>.</li>
+ 
 </ul>
 
 <hr>
@@ -54,12 +62,15 @@
 
 <h2>ساختار پوشه‌ها</h2>
 <pre><code>lib/
+ ├── core/
+ │    └── error/           # کلاس‌های Failure و مدیریت خطا
  ├── features/         
- │    ├── countries/    
- │    │     ├── data/    # Repository و Data Source, model
- │    │     ├── domain/  #  UseCase 
+ │    ├── country/    
+ │    │     ├── data/      
+ │    │     ├── domain/    
  │    │     └── presentation/ # ویجت‌ها و BLoC
  └── main.dart          
 </code></pre>
+
 
 </div>
