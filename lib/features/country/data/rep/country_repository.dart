@@ -26,13 +26,3 @@ class CountryRepository implements ICountryRepository {
   }
 }
 
-//Use Case
-class GetCountries {
-  final ICountryRepository repository;
-
-  GetCountries(this.repository);
-
-  Future<List<Country>> call() async {
-    return await repository.getCountries();
-  }
-}

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/rep/country_repository.dart';
+
+import '../../domain/usecase/FetchCountries.dart';
 import 'country_event.dart';
 import 'country_state.dart';
 
