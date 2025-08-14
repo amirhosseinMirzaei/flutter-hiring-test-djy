@@ -5,7 +5,6 @@ import 'package:flutter_hiring_test_djy/features/country/data/models/country.dar
 
 import '../source/country_data_source.dart';
 
-
 final countryRepository = CountryRepository(CountryRemoteDataSource(Dio()));
 
 abstract class ICountryRepository {
@@ -13,8 +12,7 @@ abstract class ICountryRepository {
 }
 
 class CountryRepository implements ICountryRepository {
-  static final ValueNotifier<List<Country>?> countriesNotifier =
-  ValueNotifier(null);
+  static final ValueNotifier<List<Country>?> countriesNotifier = ValueNotifier(null);
 
   final CountryRemoteDataSource dataSource;
 
@@ -28,6 +26,7 @@ class CountryRepository implements ICountryRepository {
   }
 }
 
+//Use Case
 class GetCountries {
   final ICountryRepository repository;
 
@@ -37,5 +36,3 @@ class GetCountries {
     return await repository.getCountries();
   }
 }
-
-
